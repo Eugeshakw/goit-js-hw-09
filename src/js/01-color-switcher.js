@@ -10,7 +10,10 @@ btnStop: document.querySelector('[data-stop]'),
   
 let colorRandomTimer = null;
 
-refs.btnStart.addEventListener('click', (evt) =>{
+refs.btnStart.addEventListener('click', onStartBtnClick)
+
+function onStartBtnClick(evt){
+
     evt.preventDefault();
     colorRandomTimer = setInterval(() => {
         document.body.style.backgroundColor = getRandomHexColor();
@@ -20,14 +23,17 @@ refs.btnStart.addEventListener('click', (evt) =>{
     refs.btnStart.disabled = true; 
     refs.btnStop.disabled = false;
 
+}
 
-})
 
-refs.btnStop.addEventListener('click', (evt) =>{
+
+refs.btnStop.addEventListener('click', onStopBtnClick);
+
+function onStopBtnClick(evt) {
     evt.preventDefault();
     clearInterval(colorRandomTimer);
     refs.btnStop.disabled = true;
     refs.btnStart.disabled = false;
+}
 
-})
   

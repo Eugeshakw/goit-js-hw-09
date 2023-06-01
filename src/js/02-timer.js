@@ -26,7 +26,7 @@ console.log(refs.spSec.textContent);
 
 
 
-refs.btn.disabled = false;
+refs.btn.disabled = true;
 // console.log(refs.btn);
 
 refs.btn.addEventListener('click', () =>{

@@ -57,7 +57,7 @@ const timer = {
             if(deltaTime <= 0){
                 clearInterval(currentInterval)
             }
-            console.log(`${days} : ${hours} : ${minutes} : ${seconds}`)
+            // console.log(`${days} : ${hours} : ${minutes} : ${seconds}`)
             // console.log({ days, hours, minutes, seconds });
         }, 1000);
     }
@@ -72,7 +72,7 @@ flatpickr('#datetime-picker', {
     minuteIncrement: 1,
     // minDate: 'today',
     onClose(selectedDates) {
-        console.log(selectedDates[0]);
+        // console.log(selectedDates[0]);
         const dateSel = selectedDates[0];
         const date = new Date()
         

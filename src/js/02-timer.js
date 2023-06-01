@@ -1,23 +1,19 @@
-// const flatpickr = require("flatpickr");
+
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 
 import Notiflix from 'notiflix';
 
-
-
-
 const refs = {
     inputData: document.querySelector('#datetime-picker'),
     btn: document.querySelector('button[data-start]'),
-    timer: document.querySelector('.timer'),
-    field: document.querySelectorAll('.field'),
-    value: document.querySelectorAll('.value'),
     spDays: document.querySelector('[data-days]'),
     spHours: document.querySelector('[data-hours]'),
     spMinutes: document.querySelector('[data-minutes]'),
     spSec: document.querySelector('[data-seconds]'),
 }
+
+
 console.log(refs.spDays.textContent);
 console.log(refs.spHours.textContent);
 console.log(refs.spMinutes.textContent);
@@ -27,7 +23,7 @@ console.log(refs.spSec.textContent);
 refs.btn.disabled = true;
 
 
-// console.log(refs.btn);
+
 
 
 refs.btn.addEventListener('click', () =>{

@@ -2,16 +2,21 @@ const flatpickr = require("flatpickr");
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 
+import Notiflix from 'notiflix';
+
+
+
+
 const refs = {
     inputData: document.querySelector('#datetime-picker'),
     btn: document.querySelector('button[data-start]'),
     timer: document.querySelector('.timer'),
     field: document.querySelectorAll('.field'),
     value: document.querySelectorAll('.value'),
-    spDays: document.querySelector('[data-days'),
+    spDays: document.querySelector('[data-days]'),
     spHours: document.querySelector('[data-hours]'),
     spMinutes: document.querySelector('[data-minutes]'),
-    spSec: document.querySelector('[data-seconds]')
+    spSec: document.querySelector('[data-seconds]'),
 }
 console.log(refs.spDays.textContent);
 console.log(refs.spHours.textContent);
@@ -20,7 +25,7 @@ console.log(refs.spSec.textContent);
 
 
 
-;
+
 refs.btn.disabled = false;
 // console.log(refs.btn);
 
@@ -45,7 +50,8 @@ const timer = {
             refs.spDays.textContent = days;
             refs.spHours.textContent = hours;
             refs.spMinutes.textContent = minutes;
-            refs.spSec.textContent = seconds
+            refs.spSec.textContent = seconds;
+
             if(deltaTime <= 0){
                 clearInterval(currentInterval)
             }
@@ -70,15 +76,15 @@ flatpickr('#datetime-picker', {
         
        
         if(dateSel < date){
-            alert('Please choose a date in the future');
+            Notiflix.Notify.failure('Please choose a date in the future');
             return;
-        }
+        };
         
         if(dateSel > date){
             timer.start(dateSel)
             refs.btn.disabled = false;
              
-        }
+        };
 
       
     }

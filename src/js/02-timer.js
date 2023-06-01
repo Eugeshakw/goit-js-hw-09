@@ -24,13 +24,15 @@ console.log(refs.spMinutes.textContent);
 console.log(refs.spSec.textContent);
 
 
-
-
 refs.btn.disabled = true;
+
+
 // console.log(refs.btn);
+
 
 refs.btn.addEventListener('click', () =>{
     timer.start();
+    
 });
 
 
@@ -45,7 +47,7 @@ const timer = {
             const currentTime = Date.now();
             const deltaTime = startTime - currentTime;
             const { days, hours, minutes, seconds } = convertMs(deltaTime)
-
+            
 
             refs.spDays.textContent = days;
             refs.spHours.textContent = hours;
@@ -81,7 +83,9 @@ flatpickr('#datetime-picker', {
         };
         
         if(dateSel > date){
-            timer.start(dateSel)
+            refs.btn.addEventListener('click', () => {
+                timer.start(dateSel);
+            })
             refs.btn.disabled = false;
              
         };

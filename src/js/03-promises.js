@@ -36,7 +36,7 @@ refs.form.addEventListener('submit', submitForm);
 
 function submitForm(e) {
   e.preventDefault();
-
+  
 
   let delay = Number(refs.delay.value);
   const step = Number(refs.step.value);
@@ -57,6 +57,8 @@ function submitForm(e) {
       delay += step
   }
   
+  e.target.reset();
+
 }
 
 

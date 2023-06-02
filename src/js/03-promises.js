@@ -45,7 +45,7 @@ function submitForm(e) {
   for (let i = 0; i < amount; i += 1) {
       let position = i
 
-      createPromise(2, 1500)
+      createPromise(position, delay)
   .then(({ position, delay }) => {
     Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`)
     console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);

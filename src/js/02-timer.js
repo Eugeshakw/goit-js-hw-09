@@ -37,21 +37,23 @@ refs.btn.addEventListener('click', () =>{
 
 
 const timer = {
-    start(startTime) {
+    intervalId: null,
+
+    start() {
        
-        const currentInterval = setInterval(() => {
+        this.intervalId =  setInterval(() => {
+            const startTime = flatpickr.parseDate(refs.inputData.value, 'Y-m-d H:i:S')
             const currentTime = Date.now();
             const deltaTime = startTime - currentTime;
-            const { days, hours, minutes, seconds } = convertMs(deltaTime)
-            
+            const time = convertMs(deltaTime);
 
-            refs.spDays.textContent = days;
-            refs.spHours.textContent = hours;
-            refs.spMinutes.textContent = minutes;
-            refs.spSec.textContent = seconds;
+            spanUpdateDefault(time);
+
+           
 
             if(deltaTime <= 0){
-                clearInterval(currentInterval)
+                clearInterval(this.intervalId);
+                spanUpdateDefault(convertMs(0))
             }
             // console.log(`${days} : ${hours} : ${minutes} : ${seconds}`)
             // console.log({ days, hours, minutes, seconds });
@@ -59,6 +61,13 @@ const timer = {
     }
 }
 
+function spanUpdateDefault({days, hours, minutes, seconds}) {
+    refs.spDays.textContent = `${days}`;
+    refs.spHours.textContent = `${hours}`;
+    refs.spMinutes.textContent = `${minutes}`;
+    refs.spSec.textContent = `${seconds}`;
+
+}
 
 
 flatpickr('#datetime-picker', {
@@ -81,6 +90,7 @@ flatpickr('#datetime-picker', {
         if(dateSel > date){
             refs.btn.addEventListener('click', () => {
                 timer.start(dateSel);
+                refs.btn.disabled = true;
             })
             refs.btn.disabled = false;
              
@@ -116,3 +126,26 @@ function convertMs(ms) {
 //   console.log(convertMs(2000)); 
 //   console.log(convertMs(140000)); 
 //   console.log(convertMs(24140000));
+
+
+
+const promise = new Promise((resolve, reject)=> {
+    const canFullfill = Math.random() > 0.5;
+
+    setTimeout(() => {
+        if(canFullfill){
+            resolve('Успешно...')
+        } else {
+            reject ('не успешно')
+        }
+
+    }, 4000)
+})
+
+
+
+    
+
+promise
+.then(reult => {console.log(reult)})
+.catch(error=> {console.log(error)})

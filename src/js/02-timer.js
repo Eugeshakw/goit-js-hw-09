@@ -14,10 +14,10 @@ const refs = {
 }
 
 
-console.log(refs.spDays.textContent);
-console.log(refs.spHours.textContent);
-console.log(refs.spMinutes.textContent);
-console.log(refs.spSec.textContent);
+// console.log(refs.spDays.textContent);
+// console.log(refs.spHours.textContent);
+// console.log(refs.spMinutes.textContent);
+// console.log(refs.spSec.textContent);
 
 
 refs.btn.disabled = true;
